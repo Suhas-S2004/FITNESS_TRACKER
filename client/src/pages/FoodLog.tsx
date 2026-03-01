@@ -100,7 +100,7 @@ const FoodLog = () => {
         "Are you sure you want to delete this entry?",
       );
       if (!confirm) return;
-      await api.delete(`/food-logs/${documentId}`);
+      await api.delete(`/api/food-logs/${documentId}`);
       setAllFoodLogs((prev) =>
         prev.filter((entry) => entry.documentId !== documentId),
       );
@@ -133,7 +133,7 @@ const FoodLog = () => {
     const formData = new FormData();
     formData.append("image", file);
     try {
-      const { data } = await api.post("/image-analysis", formData);
+      const { data } = await api.post("/api/image-analysis", formData);
       const result = data.result;
       let mealType = "";
 
@@ -156,7 +156,7 @@ const FoodLog = () => {
 
       // Save the result to the database
 
-      const { data: newEntry } = await api.post("/food-logs", {
+      const { data: newEntry } = await api.post("/api/food-logs", {
         data: { name: result.name, calories: result.calories, mealType },
       });
       

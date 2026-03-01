@@ -72,7 +72,7 @@ const Profile = () => {
 
   const handleSaveChanges = async () => {
     try {
-      await api.put(`/users/${user?.id}`, formData);
+      await api.put(`/api/users/${user?.id}`, formData);
       if (user?.token) {
         await fetchUser(user.token);
       }

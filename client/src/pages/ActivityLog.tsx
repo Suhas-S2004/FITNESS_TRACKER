@@ -49,7 +49,7 @@ const ActivityLog = () => {
     setError("");
 
     try {
-      const {data} =await api.post('/activity-logs', {data:formData})
+      const {data} =await api.post('/api/activity-logs', {data:formData})
 
       setAllActivityLogs((prev) => [...prev, data]);
       setFormData({ name: "", duration: 0, calories: 0 });
@@ -91,7 +91,7 @@ const ActivityLog = () => {
       const confirmDelete = window.confirm("Are you sure you want to delete this activity?");
       if (!confirmDelete) return;
 
-      await api.delete(`/activity-logs/${documentId
+      await api.delete(`/api/activity-logs/${documentId
 
       }`);
       
