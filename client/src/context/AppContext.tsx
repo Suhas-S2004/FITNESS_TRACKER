@@ -35,7 +35,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
  const signup = async (credentials: Credentials) => {
   try {
-    const { data } = await api.post("/auth/local/register", {
+    const { data } = await api.post("/api/auth/local/register", {
       username: credentials.username,
       email: credentials.email,
       password: credentials.password,
@@ -57,7 +57,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = async (credentials: Credentials) => {
   try {
-    const { data } = await api.post("/auth/local", {
+    const { data } = await api.post("/api/auth/local", {
       identifier: credentials.email,
       password: credentials.password,
     });
@@ -74,7 +74,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 };
   const fetchUser = async (token: string) => {
     try {
-      const { data } = await api.get("/users/me", {
+      const { data } = await api.get("/api/users/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser({ ...data, token });
@@ -90,7 +90,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const fetchFoodLogs = async (token: string) => {
     try {
-      const { data } = await api.get("/food-logs", {
+      const { data } = await api.get("//api/food-logs", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllFoodLogs(data);
@@ -101,7 +101,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const fetchActivityLogs = async (token: string) => {
     try {
-      const { data } = await api.get("/activity-logs", {
+      const { data } = await api.get("/api/activity-logs", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllActivityLogs(data);
