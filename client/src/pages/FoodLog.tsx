@@ -80,7 +80,7 @@ const FoodLog = () => {
     }
     try {
       setLoading(true);
-      const { data } = await api.post("/food-logs", { data: formData });
+      const { data } = await api.post("/api/food-logs", { data: formData });
       const entryWithDate = { ...data, createdAt: new Date().toISOString() };
       setAllFoodLogs(prev => [...prev, entryWithDate]);
       setFormData({ name: "", calories: 0, mealType: "" });
