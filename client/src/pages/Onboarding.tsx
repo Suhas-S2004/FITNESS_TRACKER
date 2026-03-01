@@ -15,6 +15,7 @@ import Slider from "../components/ui/Slider"; // Added based on screenshots
 import api from "../configs/api";
 import { useAppContext } from "../context/AppContext";
 
+
 const goalOptions = [
   { value: "lose", label: "Lose Weight" },
   { value: "maintain", label: "Maintain Weight" },
@@ -103,7 +104,7 @@ const Onboarding = ({ setOnboardingCompleted }: OnboardingProps) => {
       };
       localStorage.setItem("fitnessUser", JSON.stringify(userData));
       try {
-        await api.put(`/users/${user?.id}`, userData);
+        await api.put(`/api/users/${user?.id}`, userData);
         toast.success("Profile setup complete!");
         setOnboardingCompleted?.(true);
         fetchUser?.(user?.token || "");
