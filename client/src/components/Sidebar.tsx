@@ -5,36 +5,34 @@ import {
   UtensilsIcon,
   MoonIcon,
   SunIcon,
-  PersonStandingIcon
-} from "lucide-react"
-import { NavLink } from "react-router-dom"
-import { useTheme } from "../context/ThemeContext"
-import { useEffect } from "react"
+  PersonStandingIcon,
+} from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const Sidebar = () => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { path: "/", label: "Home", icon: HomeIcon },
     { path: "/foodlog", label: "Food", icon: UtensilsIcon },
     { path: "/activitylog", label: "Activity", icon: ActivityIcon },
     { path: "/profile", label: "Profile", icon: UserIcon },
-  ]
+  ];
 
-  // This is the CRITICAL change: This logic forces the browser to 
+  // This is the CRITICAL change: This logic forces the browser to
   // actually swap colors by adding the 'dark' class to the HTML root.
-//   useEffect(() => {
-//     const root = window.document.documentElement;
-//     if (theme === 'dark') {
-//       root.classList.add('dark');
-//     } else {
-//       root.classList.remove('dark');
-//     }
-//   }, [theme]);
+  //   useEffect(() => {
+  //     const root = window.document.documentElement;
+  //     if (theme === 'dark') {
+  //       root.classList.add('dark');
+  //     } else {
+  //       root.classList.remove('dark');
+  //     }
+  //   }, [theme]);
 
   return (
     <nav className="hidden lg:flex flex-col w-64 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 p-6 transition-colors duration-200">
-
       {/* Logo Section */}
       <div className="flex items-center gap-3 mb-8">
         <div className="size-10 rounded-xl bg-emerald-500 flex items-center justify-center">
@@ -82,9 +80,8 @@ const Sidebar = () => {
           </span>
         </button>
       </div>
-
     </nav>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
